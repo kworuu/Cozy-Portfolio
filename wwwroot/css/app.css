@@ -1,0 +1,25 @@
+:root {
+    --color-cream: #F5EFEB;
+    --color-parchment: #ede7e2;
+    --color-beige: #dfd7d0;
+    --color-sage: #7FA974;
+    --color-mint: #c3ddbf;
+    --color-sky: #89C4E1;
+    --color-powder: #d4edf7;
+    --color-coral: #F87171;
+    --color-blush: #fbb8b8;
+    --color-bark: #6b5c54;
+    --color-soil: #4a3830;
+    --color-night: #2d2018;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-cream);
+    color: var(--color-night);
+    font-family: 'Quicksand', sans-serif;
+    scroll-behavior: smooth;
+}
+
+a { text-decoration: none; }

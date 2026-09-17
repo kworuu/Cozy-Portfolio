@@ -1,0 +1,105 @@
+﻿@page "/"
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-character">
+        <div class="speech-bubble">
+            <p>Welcome to my cozy corner of the internet!</p>
+        </div>
+        <div class="avatar-container animate-bob">
+            <!-- Updated to your profile picture file -->
+            <img src="images/toru_pfp.jpg" alt="Profile" />
+        </div>
+        <div class="sparkles">✨ ✨ ✨</div>
+    </div>
+    <div class="hero-text">
+        <span class="eyebrow">✨ PERSONAL PORTFOLIO</span>
+        <h1>Hi, I'm <span class="text-coral">Andre!</span></h1>
+        <p>
+            A Computer Science student passionate about building cozy, human-centered software with .NET & Blazor. 
+            When not coding, I'm tending my pixel garden or rewatching Doko Demo Issyo episodes.
+        </p>
+        <div class="hero-actions">
+            <a href="/projects" class="btn btn-coral">See my work ➔</a>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Demo Section -->
+<section class="portfolio-section">
+    <div class="section-header">
+        <span class="eyebrow" style="color: var(--color-coral);">💬 INTERACTIVE BLAZOR DEMO</span>
+        <h2>Talk to Toro</h2>
+        <div class="divider"></div>
+    </div>
+
+    <div class="toro-interactive-card">
+        <!-- Left Column: Avatar & Dots -->
+        <div class="toro-display">
+            <div class="toro-avatar-large">
+                <img src="@CurrentMood.ImagePath" alt="Toro" class="@(isAnimating ? "squish" : "")" />
+            </div>
+            <div class="dots">
+                @for (int i = 0; i < moods.Count; i++)
+                {
+                    <span class="dot @(i == currentMoodIndex ? "active" : "")"></span>
+                }
+            </div>
+        </div>
+        
+        <!-- Right Column: Dialogue, Button, Code Preview -->
+        <div class="toro-controls">
+            <div class="dialogue-box @CurrentMood.ThemeClass">
+                <div class="speaker-name">
+                    <span class="speaker-icon">@CurrentMood.Icon</span>
+                    <strong>Toro</strong> <span class="mode-label">[@CurrentMood.MoodName mode]</span>
+                </div>
+                <p class="dialogue-text">"@CurrentMood.Message"</p>
+            </div>
+            
+            <button class="btn btn-coral talk-btn" @onclick="CycleMood">▶ Talk to Toro</button>
+
+            <div class="code-preview">
+                <span class="code-label">&lt;/&gt; BLAZOR EQUIVALENT</span>
+                <pre><code>@@code {
+    private int moodIndex = 0;
+    private string[] moods = { "happy", "sleepy", "cool" };
+    private string CurrentMood => moods[moodIndex];
+
+    private void CycleMood() =>
+        moodIndex = (moodIndex + 1) % moods.Length;
+}
+
+// Template:
+// &lt;button @@onclick="CycleMood"&gt;Talk to Toro!&lt;/button&gt;
+// &lt;img src="@@CurrentMood" alt="Toro" /&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private int currentMoodIndex = 0;
+    private bool isAnimating = false;
+    private MoodState CurrentMood => moods[currentMoodIndex];
+
+    private async Task CycleMood()
+    {
+        if (isAnimating) return;
+        isAnimating = true;
+        currentMoodIndex = (currentMoodIndex + 1) % moods.Count;
+        StateHasChanged();
+        await Task.Delay(200);
+        isAnimating = false;
+    }
+
+    private record MoodState(string MoodName, string Message, string ImagePath, string ThemeClass, string Icon);
+    
+    // Updated image paths to use talk_to_toru.jpg
+    private List<MoodState> moods = new()
+    {
+        new MoodState("Happy", "Welcome to my cozy corner of the internet! I'm so glad you stopped by~", "images/talk_to_toru.jpg", "theme-pink", "☀️"),
+        new MoodState("Sleepy", "...oh! You came to visit? Excuse me, I was just resting...", "images/talk_to_toru.jpg", "theme-blue", "🌙"),
+        new MoodState("Cool", "Hey. Cool of you to stop by. Check out what I've been building lately.", "images/talk_to_toru.jpg", "theme-green", "🎧")
+    };
+}

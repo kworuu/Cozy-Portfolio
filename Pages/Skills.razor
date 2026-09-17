@@ -1,0 +1,30 @@
+@page "/skills"
+
+<section class="portfolio-section">
+    <div class="section-header">
+        <span class="eyebrow" style="color: var(--color-sky);">🎒 MY TOOLKIT</span>
+        <h2>Skills & Tools</h2>
+        <div class="divider"></div>
+    </div>
+    
+    <div class="skills-flex">
+        @foreach (var skill in MySkills)
+        {
+            <div class="skill-pill">
+                <span class="skill-icon">@skill.Icon</span>
+                <span>@skill.Name</span>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private record Skill(string Name, string Icon);
+    private List<Skill> MySkills = new()
+    {
+        new Skill("C# / .NET 8", "⚡"), new Skill("Blazor WebAssembly", "🌐"),
+        new Skill("HTML & CSS", "🎨"), new Skill("TypeScript", "📜"),
+        new Skill("SQL & EF Core", "🗄️"), new Skill("Git & GitHub", "🐙"),
+        new Skill("Python", "🐍"), new Skill("Java", "☕")
+    };
+}
