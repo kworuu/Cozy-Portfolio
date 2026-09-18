@@ -28,11 +28,11 @@
 </section>
 
 @code {
-    private record Project(string Title, string Description, string[] Tags, string Icon);
-    private List<Project> MyProjects = new()
+    [Inject] private IportfolioDataService DataService { get; set; } = default!;
+    private IReadOnlyList<Project> MyProjects = Array.Empty<Project>();
+
+    protected override void OnInitialized()
     {
-        new Project("Cozy Weather", "A warm, minimal weather dashboard showing hourly forecasts, UV index, and mood-matched wallpapers.", new[]{"Blazor WASM", "C#", ".NET 8"}, "☁️"),
-        new Project("Pixel Garden", "Procedurally generated pixel-art gardens. Grow plants, earn seeds, water neighbors' plots in real time.", new[]{"C#", "SignalR", "HTML Canvas"}, "🌱"),
-        new Project("Note Nook", "A warm-toned note-taking app with rich text editing, tagging, and daily journal prompts.", new[]{"Blazor Server", "SQLite", "EF Core"}, "📝")
-    };
+        MyProjects = DataService.GetProjects();
+    }
 }

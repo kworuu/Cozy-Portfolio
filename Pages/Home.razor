@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿﻿@page "/"
 
 <!-- Hero Section -->
 <section class="hero">
@@ -7,8 +7,7 @@
             <p>Welcome to my cozy corner of the internet!</p>
         </div>
         <div class="avatar-container animate-bob">
-            <!-- Updated to your profile picture file -->
-            <img src="images/toru_pfp.jpg" alt="Profile" />
+            <img src="images/mascot/profile.jpg" alt="Profile" />
         </div>
         <div class="sparkles">✨ ✨ ✨</div>
     </div>
@@ -79,9 +78,17 @@
 </section>
 
 @code {
+    [Inject] private IPortfolioDataService DataService { get; set; } = default!;
+
     private int currentMoodIndex = 0;
     private bool isAnimating = false;
+    private IReadOnlyList<MoodState> moods = Array.Empty<MoodState>();
     private MoodState CurrentMood => moods[currentMoodIndex];
+
+    protected override void OnInitialized()
+    {
+        moods = DataService.GetMoodStates();
+    }
 
     private async Task CycleMood()
     {
@@ -92,14 +99,4 @@
         await Task.Delay(200);
         isAnimating = false;
     }
-
-    private record MoodState(string MoodName, string Message, string ImagePath, string ThemeClass, string Icon);
-    
-    // Updated image paths to use talk_to_toru.jpg
-    private List<MoodState> moods = new()
-    {
-        new MoodState("Happy", "Welcome to my cozy corner of the internet! I'm so glad you stopped by~", "images/happy.jpg", "theme-pink", "☀️"),
-        new MoodState("Sleepy", "...oh! You came to visit? Excuse me, I was just resting...", "images/sleepy.jpg", "theme-blue", "🌙"),
-        new MoodState("Cool", "Hey. Cool of you to stop by. Check out what I've been building lately.", "images/cool.jpg", "theme-green", "🎧")
-    };
 }

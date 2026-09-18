@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CozyPortfolio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aacacf1cb93b5da9fd5b061c3bf93de5e7ecef98")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f87816c3cb527dcddc031dd89d9851f0a99f719")]
 [assembly: System.Reflection.AssemblyProductAttribute("CozyPortfolio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CozyPortfolio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

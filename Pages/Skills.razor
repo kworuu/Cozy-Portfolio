@@ -19,12 +19,12 @@
 </section>
 
 @code {
-    private record Skill(string Name, string Icon);
-    private List<Skill> MySkills = new()
+    [Inject] private IPortfolioDataService DataService { get; set; } = default!;
+
+    private IReadOnlyList<Skill> MySkills = Array.Empty<Skill>();
+
+    protected override void OnInitialized()
     {
-        new Skill("C# / .NET 8", "⚡"), new Skill("Blazor WebAssembly", "🌐"),
-        new Skill("HTML & CSS", "🎨"), new Skill("TypeScript", "📜"),
-        new Skill("SQL & EF Core", "🗄️"), new Skill("Git & GitHub", "🐙"),
-        new Skill("Python", "🐍"), new Skill("Java", "☕")
-    };
+        MySkills = DataService.GetSkills();
+    }
 }

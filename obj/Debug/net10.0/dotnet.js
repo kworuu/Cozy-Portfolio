@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "CozyPortfolio",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-2K9Y9yjzkOtouwvg+426jKcCiPRM8MgO67BUi3tgtsk=",
+    "hash": "sha256-WNzi+mDFXJQ2CRV6EDILgBboifE3QXTEgaRJ28a3tps=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.b6l13xorvf.js"
@@ -1242,16 +1242,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "CozyPortfolio.wasm",
-        "name": "CozyPortfolio.wwj1rryucl.wasm",
-        "hash": "sha256-8P1v/QTjqrir8E2T7Ln86dVJ0rfSn/ndYG6vuKopMLY=",
+        "name": "CozyPortfolio.zkfvvrs9pt.wasm",
+        "hash": "sha256-oysTVnSSVltZUNRo/RS+421iz1yk0K9A7N+8sjWGKfA=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "CozyPortfolio.pdb",
-        "name": "CozyPortfolio.vxkrx143tw.pdb",
-        "hash": "sha256-Pfg/8gOx8tOCduWR/ML3gzkToQZEIt3mcQwkEyJAOOs=",
+        "name": "CozyPortfolio.3lgi38lbat.pdb",
+        "hash": "sha256-dzcmMCoyGiBVY95XisX5D5QMBJCOsU5aFQAgM4jOHEQ=",
         "cache": "force-cache"
       }
     ],
