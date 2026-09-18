@@ -1,5 +1,5 @@
-using CozyPortfolio.Models;
 namespace CozyPortfolio.Services;
+using CozyPortfolio.Models;
 
 public interface IPortfolioDataService
 {

@@ -22,4 +22,26 @@ html, body {
     scroll-behavior: smooth;
 }
 
-a { text-decoration: none; }
+a { 
+    text-decoration: none; 
+}
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s;
+    text-decoration: none;
+}
+.btn:active { 
+    transform: translateY(2px); 
+}
+
+.btn-sage {
+    background: var(--color-sage);
+    color: white;
+    box-shadow: 4px 4px 0 rgba(127, 169, 116, 0.4);
+}

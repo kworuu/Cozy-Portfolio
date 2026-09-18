@@ -1,46 +1,46 @@
-.project-card {
+.project-card[b-guoxarkhu1] {
     background: white; border-radius: 1.5rem; padding: 1.5rem;
     border: 3px solid var(--color-beige); box-shadow: 6px 6px 0 rgba(74,56,48,0.08);
     display: flex; flex-direction: column; gap: 1rem; transition: transform 0.1s;
 }
 
-.project-card:hover { 
+.project-card:hover[b-guoxarkhu1] { 
     transform: translateY(-4px); 
 }
 
-.card-title { 
+.card-title[b-guoxarkhu1] { 
     display: flex; 
     align-items: center; 
     gap: 0.8rem; 
 }
 
-.card-icon { 
+.card-icon[b-guoxarkhu1] { 
     font-size: 1.5rem; 
     background: var(--color-cream); 
     padding: 0.5rem; 
     border-radius: 50%; 
 }
 
-.card-title h3 { 
+.card-title h3[b-guoxarkhu1] { 
     margin: 0; 
     font-size: 1.3rem; 
     font-weight: 800; 
 }
 
-.project-card p { 
+.project-card p[b-guoxarkhu1] { 
     font-size: 0.9rem; 
     color: var(--color-bark); 
     margin: 0; flex-grow: 1; 
     line-height: 1.5; 
 }
 
-.tags { 
+.tags[b-guoxarkhu1] { 
     display: flex; 
     flex-wrap: wrap; 
     gap: 0.5rem; 
 }
 
-.tag { 
+.tag[b-guoxarkhu1] { 
     background: var(--color-mint); 
     color: var(--color-soil); 
     font-size: 0.75rem; 

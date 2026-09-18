@@ -41,6 +41,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/andre/Documents/app-dev/CozyPortfolio/Components/Common/SectionHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb21tb25cU2VjdGlvbkhlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-u8ggikgb9f
+
+[C:/Users/andre/Documents/app-dev/CozyPortfolio/Components/Mascot/ToruInteractive.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNYXNjb3RcVG9ydUludGVyYWN0aXZlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qvtr9l46te
+
+[C:/Users/andre/Documents/app-dev/CozyPortfolio/Components/Projects/ProjectCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9qZWN0c1xQcm9qZWN0Q2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-guoxarkhu1
+
+[C:/Users/andre/Documents/app-dev/CozyPortfolio/Components/Skills/SkillPill.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTa2lsbHNcU2tpbGxQaWxsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-zfu98itza4
+
 [C:/Users/andre/Documents/app-dev/CozyPortfolio/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-lyu25rdce9

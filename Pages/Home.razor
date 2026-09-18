@@ -1,4 +1,4 @@
-﻿﻿@page "/"
+﻿@page "/"
 
 <!-- Hero Section -->
 <section class="hero">
@@ -15,7 +15,7 @@
         <span class="eyebrow">✨ PERSONAL PORTFOLIO</span>
         <h1>Hi, I'm <span class="text-sage">Andre!</span></h1>
         <p>
-            A Computer Science student passionate about building cozy, human-centered software with .NET & Blazor. 
+            A Computer Science student passionate about building cozy, human-centered software with .NET & Blazor.
             When not coding, I'm tending my pixel garden or rewatching Doko Demo Issyo episodes.
         </p>
         <div class="hero-actions">
@@ -26,77 +26,6 @@
 
 <!-- Interactive Demo Section -->
 <section class="portfolio-section">
-    <div class="section-header">
-        <span class="eyebrow" style="color: var(--color-sage);">💬 INTERACTIVE BLAZOR DEMO</span>
-        <h2>Talk to Toru</h2>
-        <div class="divider"></div>
-    </div>
-
-    <div class="toro-interactive-card">
-        <!-- Left Column: Avatar & Dots -->
-        <div class="toro-display">
-            <div class="toro-avatar-large">
-                <img src="@CurrentMood.ImagePath" alt="Toru" class="@(isAnimating ? "squish" : "")" />
-            </div>
-            <div class="dots">
-                @for (int i = 0; i < moods.Count; i++)
-                {
-                    <span class="dot @(i == currentMoodIndex ? "active" : "")"></span>
-                }
-            </div>
-        </div>
-        
-        <!-- Right Column: Dialogue, Button, Code Preview -->
-        <div class="toro-controls">
-            <div class="dialogue-box @CurrentMood.ThemeClass">
-                <div class="speaker-name">
-                    <span class="speaker-icon">@CurrentMood.Icon</span>
-                    <strong>Toru</strong> <span class="mode-label">[@CurrentMood.MoodName mode]</span>
-                </div>
-                <p class="dialogue-text">"@CurrentMood.Message"</p>
-            </div>
-            
-            <button class="btn btn-sage talk-btn" @onclick="CycleMood">▶ Talk to Toru</button>
-
-            <div class="code-preview">
-                <span class="code-label">&lt;/&gt; BLAZOR EQUIVALENT</span>
-                <pre><code>@@code {
-    private int moodIndex = 0;
-    private string[] moods = { "happy", "sleepy", "cool" };
-    private string CurrentMood => moods[moodIndex];
-
-    private void CycleMood() =>
-        moodIndex = (moodIndex + 1) % moods.Length;
-}
-
-// Template:
-// &lt;button @@onclick="CycleMood"&gt;Talk to Toro!&lt;/button&gt;
-// &lt;img src="@@CurrentMood" alt="Toro" /&gt;</code></pre>
-            </div>
-        </div>
-    </div>
+    <SectionHeader Eyebrow="💬 INTERACTIVE BLAZOR DEMO" EyebrowColor="var(--color-sage)" Title="Talk to Toru" />
+    <ToruInteractive />
 </section>
-
-@code {
-    [Inject] private IPortfolioDataService DataService { get; set; } = default!;
-
-    private int currentMoodIndex = 0;
-    private bool isAnimating = false;
-    private IReadOnlyList<MoodState> moods = Array.Empty<MoodState>();
-    private MoodState CurrentMood => moods[currentMoodIndex];
-
-    protected override void OnInitialized()
-    {
-        moods = DataService.GetMoodStates();
-    }
-
-    private async Task CycleMood()
-    {
-        if (isAnimating) return;
-        isAnimating = true;
-        currentMoodIndex = (currentMoodIndex + 1) % moods.Count;
-        StateHasChanged();
-        await Task.Delay(200);
-        isAnimating = false;
-    }
-}

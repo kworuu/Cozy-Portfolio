@@ -1,19 +1,12 @@
 @page "/skills"
 
 <section class="portfolio-section">
-    <div class="section-header">
-        <span class="eyebrow" style="color: var(--color-sky);">🎒 MY TOOLKIT</span>
-        <h2>Skills & Tools</h2>
-        <div class="divider"></div>
-    </div>
-    
+    <SectionHeader Eyebrow="🎒 MY TOOLKIT" EyebrowColor="var(--color-sky)" Title="Skills & Tools" />
+
     <div class="skills-flex">
         @foreach (var skill in MySkills)
         {
-            <div class="skill-pill">
-                <span class="skill-icon">@skill.Icon</span>
-                <span>@skill.Name</span>
-            </div>
+            <SkillPill Skill="skill" />
         }
     </div>
 </section>
