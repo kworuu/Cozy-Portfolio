@@ -4,15 +4,15 @@
 <div class="portfolio-wrapper">
     <nav class="glass-nav">
         <div class="nav-brand">
-            <div class="brand-icon">🏠</div>
+            <div class="brand-icon"><Icon Name="IconName.Leaf" Size="20" /></div>
             <span class="brand-text">Toru's Nook</span>
         </div>
         <div class="nav-links">
-            <a href="/">👋 Home</a>
-            <a href="/skills">🔧 Skills</a>
-            <a href="/projects">📚 Projects</a>
+            <a href="/"><Icon Name="IconName.Home" Size="20" /> Home</a>
+            <a href="/skills"><Icon Name="IconName.Wrench" Size="20" /> Skills</a>
+            <a href="/projects"><Icon Name="IconName.Layers" Size="20" /> Projects</a>
             <button class="mute-toggle" @onclick="ToggleMute" title="@(AudioService.IsMuted ? "Unmute" : "Mute")">
-                @(AudioService.IsMuted ? "🔇" : "🔊")
+                <Icon Name="@(AudioService.IsMuted ? IconName.Mute : IconName.Speaker)" Size="20" />
             </button>
         </div>
     </nav>
@@ -22,7 +22,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>Made with ✨ by Andre · Built with .NET Blazor · Guided by Toru</p>
+        <p>Made by Andre · Built with .NET Blazor · Guided by Toru</p>
         <p class="sub-footer">Toru Inoue © Sony Computer Entertainment — images used for educational/fan purposes only</p>
     </footer>
 </div>

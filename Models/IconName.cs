@@ -16,5 +16,9 @@ public enum IconName
     BotMessageSquare,
     Sun,
     Wrench,
-    Home
+    Home,
+    Speaker,
+    Mute,
+    Leaf,
+    Speech
 }
