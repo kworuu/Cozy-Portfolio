@@ -1,3 +1,3 @@
 namespace CozyPortfolio.Models;
 
-public record Skill(string Name, string Icon);
+public record Skill(string Name, IconName Icon);

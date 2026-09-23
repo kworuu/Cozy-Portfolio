@@ -16,7 +16,7 @@
     <div class="toro-controls">
         <div class="dialogue-box @CurrentMood.ThemeClass">
             <div class="speaker-name">
-                <span class="speaker-icon">@CurrentMood.Icon</span>
+                <span class="speaker-icon"><Icon Name="CurrentMood.Icon" Size="16" /></span>
                 <strong>Toru</strong> <span class="mode-label">[@CurrentMood.MoodName mode]</span>
             </div>
             <p class="dialogue-text">"@CurrentMood.Message"</p>
@@ -26,24 +26,14 @@
 
         <div class="code-preview">
             <span class="code-label">&lt;/&gt; BLAZOR EQUIVALENT</span>
-            <pre><code>@@code {
-    private int moodIndex = 0;
-    private string[] moods = { "happy", "sleepy", "cool" };
-    private string CurrentMood => moods[moodIndex];
-
-    private void CycleMood() =>
-        moodIndex = (moodIndex + 1) % moods.Length;
-}
-
-// Template:
-// &lt;button @@onclick="CycleMood"&gt;Talk to Toro!&lt;/button&gt;
-// &lt;img src="@@CurrentMood" alt="Toro" /&gt;</code></pre>
+            <pre><code>@CodePreviewText</code></pre>
         </div>
     </div>
 </div>
 
 @code {
     [Inject] private IPortfolioDataService DataService { get; set; } = default!;
+    [Inject] private IAudioService AudioService { get; set; } = default!;
 
     private int currentMoodIndex = 0;
     private bool isAnimating = false;
@@ -61,7 +51,24 @@
         isAnimating = true;
         currentMoodIndex = (currentMoodIndex + 1) % moods.Count;
         StateHasChanged();
+
+        // Deliberately NOT called from OnInitialized: browsers block audio
+        // playback that isn't triggered by a real user gesture. This click
+        // handler is a genuine user gesture, so starting/crossfading here is safe.
+        await AudioService.PlayMoodTrackAsync(CurrentMood.AudioPath);
+
         await Task.Delay(200);
         isAnimating = false;
     }
+
+    private const string CodePreviewText = @"@code {
+    private int currentMoodIndex = 0;
+    private MoodState CurrentMood => moods[currentMoodIndex];
+
+    private async Task CycleMood()
+    {
+        currentMoodIndex = (currentMoodIndex + 1) % moods.Count;
+        StateHasChanged();
+    }
+}";
 }

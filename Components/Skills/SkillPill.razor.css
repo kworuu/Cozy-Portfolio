@@ -17,3 +17,9 @@
 .skill-pill:hover { 
     transform: translateY(-2px); 
 }
+
+.skill-icon { 
+    display: inline-flex; 
+    align-items: center; 
+    color: var(--color-sky); 
+}
