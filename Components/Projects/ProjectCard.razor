@@ -1,0 +1,17 @@
+<div class="project-card">
+    <div class="card-title">
+        <span class="card-icon">@Project.Icon</span>
+        <h3>@Project.Title</h3>
+    </div>
+    <p>@Project.Description</p>
+    <div class="tags">
+        @foreach (var tag in Project.Tags)
+        {
+            <span class="tag">@tag</span>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Project Project { get; set; } = default!;
+}

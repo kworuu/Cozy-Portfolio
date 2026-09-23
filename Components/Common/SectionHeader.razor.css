@@ -1,0 +1,15 @@
+.section-header { 
+    margin-bottom: 2rem; 
+}
+
+.section-header h2 { 
+    font-size: 2.2rem; margin: 0.2rem 0; font-weight: 800; 
+}
+
+.eyebrow { 
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; 
+}
+
+.divider { 
+    height: 2px; background: var(--color-beige); width: 100%; max-width: 300px; margin-top: 0.5rem; 
+}

@@ -1,38 +1,23 @@
 @page "/projects"
 
 <section class="portfolio-section">
-    <div class="section-header">
-        <span class="eyebrow" style="color: var(--color-sage);">📌 PINNED WORK</span>
-        <h2>Projects</h2>
-        <div class="divider"></div>
-    </div>
-    
+    <SectionHeader Eyebrow="📌 PINNED WORK" EyebrowColor="var(--color-sage)" Title="Projects" />
+
     <div class="projects-grid">
         @foreach (var proj in MyProjects)
         {
-            <div class="project-card">
-                <div class="card-title">
-                    <span class="card-icon">@proj.Icon</span>
-                    <h3>@proj.Title</h3>
-                </div>
-                <p>@proj.Description</p>
-                <div class="tags">
-                    @foreach (var tag in proj.Tags)
-                    {
-                        <span class="tag">@tag</span>
-                    }
-                </div>
-            </div>
+            <ProjectCard Project="proj" />
         }
     </div>
 </section>
 
 @code {
-    private record Project(string Title, string Description, string[] Tags, string Icon);
-    private List<Project> MyProjects = new()
+    [Inject] private IPortfolioDataService DataService { get; set; } = default!;
+
+    private IReadOnlyList<Project> MyProjects = Array.Empty<Project>();
+
+    protected override void OnInitialized()
     {
-        new Project("Cozy Weather", "A warm, minimal weather dashboard showing hourly forecasts, UV index, and mood-matched wallpapers.", new[]{"Blazor WASM", "C#", ".NET 8"}, "☁️"),
-        new Project("Pixel Garden", "Procedurally generated pixel-art gardens. Grow plants, earn seeds, water neighbors' plots in real time.", new[]{"C#", "SignalR", "HTML Canvas"}, "🌱"),
-        new Project("Note Nook", "A warm-toned note-taking app with rich text editing, tagging, and daily journal prompts.", new[]{"Blazor Server", "SQLite", "EF Core"}, "📝")
-    };
+        MyProjects = DataService.GetProjects();
+    }
 }
