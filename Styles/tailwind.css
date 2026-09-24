@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* `static` forces every token out as a :root variable, even if no utility uses it.
+   Without it, existing var(--color-blush) in leftover .razor.css would silently break. */
+@theme static {
+  --color-cream: #F5EFEB;   --color-parchment: #ede7e2;  --color-beige: #dfd7d0;
+  --color-sage: #7FA974;    --color-mint: #c3ddbf;
+  --color-sky: #89C4E1;     --color-powder: #d4edf7;
+  --color-coral: #F87171;   --color-blush: #fbb8b8;
+  --color-bark: #6b5c54;    --color-soil: #4a3830;       --color-night: #2d2018;
+
+  --font-display: "M PLUS Rounded 1c", sans-serif;
+  --font-body: "Quicksand", sans-serif;
+  --shadow-pop: 6px 6px 0 rgba(74, 56, 48, 0.08);
+
+  --animate-bob: bob 3s ease-in-out infinite;
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+}
+
+@layer base {
+  html, body { @apply m-0 p-0 bg-cream text-night font-body scroll-smooth; }
+  h1, h2, h3, strong { @apply font-display; }   /* fixes the font leak globally */
+}
+
+@layer components {
+  .btn { @apply px-6 py-3 rounded-full font-display font-extrabold cursor-pointer transition active:translate-y-0.5; }
+  .btn-sage { @apply bg-sage text-white shadow-[4px_4px_0_rgba(127,169,116,0.4)]; }
+}

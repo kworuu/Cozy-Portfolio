@@ -1,0 +1,26 @@
+{
+  "name": "cozyportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css:watch": "npx @tailwindcss/cli -i ./Styles/tailwind.css -o ./wwwroot/css/app.css --watch",
+    "css:build": "npx @tailwindcss/cli -i ./Styles/tailwind.css -o ./wwwroot/css/app.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kworuu/Cozy-Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kworuu/Cozy-Portfolio/issues"
+  },
+  "homepage": "https://github.com/kworuu/Cozy-Portfolio#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
