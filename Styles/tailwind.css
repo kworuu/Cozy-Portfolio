@@ -1,4 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../Components";
+@source "../Pages";
+@source "../Layout";
+@source "../Services";
+@source "../wwwroot/index.html";
 
 /* `static` forces every token out as a :root variable, even if no utility uses it.
    Without it, existing var(--color-blush) in leftover .razor.css would silently break. */
@@ -23,6 +28,6 @@
 }
 
 @layer components {
-  .btn { @apply px-6 py-3 rounded-full font-display font-extrabold cursor-pointer transition active:translate-y-0.5; }
+  .btn { @apply px-6 py-3 rounded-full font-display font-extrabold text-[0.95rem] cursor-pointer transition active:translate-y-0.5; }
   .btn-sage { @apply bg-sage text-white shadow-[4px_4px_0_rgba(127,169,116,0.4)]; }
 }
