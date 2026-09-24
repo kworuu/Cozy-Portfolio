@@ -1,29 +1,29 @@
 ﻿@inherits LayoutComponentBase
 @implements IDisposable
 
-<div class="portfolio-wrapper">
-    <nav class="glass-nav">
-        <div class="nav-brand">
-            <div class="brand-icon"><Icon Name="IconName.Leaf" Size="20" /></div>
-            <span class="brand-text">Toru's Nook</span>
+<div>
+    <nav class="sticky top-0 z-[100] flex items-center justify-between border-b-2 border-white/50 bg-cream/70 px-10 py-4 backdrop-blur-md">
+        <div class="flex items-center gap-2">
+            <div class="rounded-lg bg-white p-[0.4rem] text-sage shadow-[0_2px_4px_rgba(0,0,0,0.05)]"><Icon Name="IconName.Leaf" Size="20" /></div>
+            <span class="font-display text-[1.1rem] font-extrabold">Toru's Nook</span>
         </div>
-        <div class="nav-links">
-            <a href="/"><Icon Name="IconName.Home" Size="20" /> Home</a>
-            <a href="/skills"><Icon Name="IconName.Wrench" Size="20" /> Skills</a>
-            <a href="/projects"><Icon Name="IconName.Layers" Size="20" /> Projects</a>
-            <button class="mute-toggle" @onclick="ToggleMute" title="@(AudioService.IsMuted ? "Unmute" : "Mute")">
+        <div class="flex items-center gap-6">
+            <a href="/" class="inline-flex items-center gap-[0.4rem] text-[0.9rem] font-bold text-bark transition-colors duration-200 hover:text-night"><Icon Name="IconName.Home" Size="20" /> Home</a>
+            <a href="/skills" class="inline-flex items-center gap-[0.4rem] text-[0.9rem] font-bold text-bark transition-colors duration-200 hover:text-night"><Icon Name="IconName.Wrench" Size="20" /> Skills</a>
+            <a href="/projects" class="inline-flex items-center gap-[0.4rem] text-[0.9rem] font-bold text-bark transition-colors duration-200 hover:text-night"><Icon Name="IconName.Layers" Size="20" /> Projects</a>
+            <button class="cursor-pointer rounded-[50%] px-[0.4rem] py-[0.2rem] text-[1.1rem] transition-colors duration-200 hover:bg-black/5" @onclick="ToggleMute" title="@(AudioService.IsMuted ? "Unmute" : "Mute")">
                 <Icon Name="@(AudioService.IsMuted ? IconName.Mute : IconName.Speaker)" Size="20" />
             </button>
         </div>
     </nav>
 
-    <main class="main-content">
+    <main class="mx-auto flex max-w-[900px] flex-col gap-16 px-6 pt-8 pb-24">
         @Body
     </main>
 
-    <footer class="site-footer">
-        <p>Made by Andre · Built with .NET Blazor · Guided by Toru</p>
-        <p class="sub-footer">Toru Inoue © Sony Computer Entertainment — images used for educational/fan purposes only</p>
+    <footer class="border-t-2 border-beige px-4 py-8 text-center font-bold text-bark">
+        <p class="flex w-full items-center justify-center gap-[0.4rem]">Made by Andre · Built with .NET Blazor · Guided by Toru</p>
+        <p class="mt-2 text-xs font-medium opacity-70">Toru Inoue © Sony Computer Entertainment — images used for educational/fan purposes only</p>
     </footer>
 </div>
 

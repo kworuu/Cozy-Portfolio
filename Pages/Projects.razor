@@ -1,9 +1,9 @@
 @page "/projects"
 
-<section class="portfolio-section">
+<section>
     <SectionHeader Eyebrow="📌 PINNED WORK" EyebrowColor="var(--color-sage)" Title="Projects" />
 
-    <div class="projects-grid">
+    <div class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
         @foreach (var proj in MyProjects)
         {
             <ProjectCard Project="proj" />

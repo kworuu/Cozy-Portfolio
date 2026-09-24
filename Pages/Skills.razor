@@ -1,9 +1,9 @@
 @page "/skills"
 
-<section class="portfolio-section">
+<section>
     <SectionHeader Eyebrow="🎒 MY TOOLKIT" EyebrowColor="var(--color-sky)" Title="Skills & Tools" />
 
-    <div class="skills-flex">
+    <div class="mt-6 flex flex-wrap gap-[0.8rem]">
         @foreach (var skill in MySkills)
         {
             <SkillPill Skill="skill" />
